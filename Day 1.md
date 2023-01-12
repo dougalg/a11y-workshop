@@ -65,6 +65,18 @@ Keyboard Settings -> Keyboard navigation (on)
 
 Note the default focus styles here. Most HTML is accessible BY DEFAULT
 
+Show an example of remove the focus styles:
+
+```css
+*:focus {
+	outline: none;
+}
+```
+
+Note how this breaks the "perceivable" rule for keyboard users. They cannot know where focus is.
+Some keyboard user have NO visual impairments, but have motor impairments that make using a mouse
+or other pointer impossible.
+
 ### Headings
 
 Add 3 sections and headings
