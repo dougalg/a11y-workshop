@@ -1,0 +1,49 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /** Light Theme (Default) **/
+  /** Text **/
+  --high-contrast-text: #333;
+  --low-contrast-text: #444;
+  --surface-default: #eee;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/** Dark Theme **/
+@media (prefers-color-scheme: dark) {
+  :root {
+    /** Text **/
+    --high-contrast-text: #e8e8e8;
+    --low-contrast-text: #ccc;
+    --surface-default: #222;
+  }
+}
+
+:root {
+  color: var(--high-contrast-text);
+  background-color: var(--surface-default);
+}
+
+.screenreader-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}

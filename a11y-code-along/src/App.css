@@ -1,0 +1,35 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+#root,
+.App {
+  min-height: 100vh;
+}
+
+.App {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.site-header {
+  grid-area: header;
+}
+
+.site-main {
+  grid-area: main;
+}
+
+.site-footer {
+  grid-area: footer;
+}
