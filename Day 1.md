@@ -19,43 +19,48 @@
 
 ## Walkthrough
 
-### Review POUR & WCAG
+### Intro - POUR & WCAG, Setup
 
-[Intro Slides](https://docs.google.com/presentation/d/1KKHwTzK5BJMxC-48WsFxMEaNF4IR_77GaxriiQAoL6U/edit?usp=sharing)
+[Intro Slides](https://docs.google.com/presentation/d/1_JD5F-Q4AjDQKshefTboP3xaEVWwghcvhgroIgVwY0M/edit?usp=sharing)
+[Minerva Blog Design on Dribbble](https://dribbble.com/shots/20214727-Minerva-Blog)
+[Repo](https://github.com/dougalg/a11y-workshop/)
+- Open the `a11y-day1` folder
 
-#### Automated Checking
 
-- [Built-in a11y checker (FF)](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/)
-- [Built-in a11y checker (Chrome)](https://developer.chrome.com/docs/devtools/accessibility/reference/)
-- [Automated React a11y Checkers](https://web.dev/accessibility-auditing-react/)
-
-Automated checking IS NOT sufficient
-
-Set formatter to ESLint in vscode, and in json settings for vscode enable:
-
-```json
-  "eslint.format.enable": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
-```
+### Start Basic Setup
 
 Point out editorconfig with tabs.
 Show the "tab size" setting in VS Code to illustrate
 
-### Start Basic Setup
-
-- Lang in index.html
-- Title in index.html to "Minerva"
+- Lang in index.html (Doesn't affect Voiceover much, but affects other things like many screenreaders, and some HTML elements)
+- Viewport meta tag - make sure to allow resizing. Important esp. for visually impaired users
+	- Change to `width=device-width,user-scalable=no` and switch to mobile view, scaling no longer works
+	- Switch back to `width=device-width, initial-scale=1.0` and now it works
+- Title in index.html
 - Add in the [basic landmarks](https://www.d.umn.edu/itss/training/online/structure/landmarks/):
   - Header
   - Main
   - Nav
-  - Footer
+  - Footer - placeholder only for now
   - These could be done with aria-role BUT the ideal case for a11y is to always use the correct HTML if possible as it typically has better support
 
-Use VoiceOver to navigate around the landmarks. (cmd + f5) then use rotor (ctrl + opt + u)
+#### Browser Tools
+
+Review the a11y tree so far, with accessible names
+
+- [Built-in a11y inspector (FF)](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/)
+- [Built-in a11y inspector (Chrome)](https://developer.chrome.com/docs/devtools/accessibility/reference/)
+- [Automated React a11y Checkers](https://web.dev/accessibility-auditing-react/)
+
+### VoiceOver/Narrator/JAWS
+
+[Windows Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1)
+[MacOS VoiceOver](https://support.apple.com/en-sg/guide/mac-help/mh40578/mac)
+
+Use a screenreader to navigate around the landmarks. (cmd + f5) then use rotor (ctrl + opt + u)
 [VoiceOver Cheatsheet](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
+
+Have others do it themselves if interested
 
 ### Nav styling
 
@@ -65,7 +70,7 @@ Keyboard Settings -> Keyboard navigation (on)
 
 Note the default focus styles here. Most HTML is accessible BY DEFAULT
 
-Show an example of remove the focus styles:
+Many designers want to remove the focus styles because they show up on click. Show an example of this and how it is frustrating for KB users:
 
 ```css
 *:focus {
@@ -76,6 +81,19 @@ Show an example of remove the focus styles:
 Note how this breaks the "perceivable" rule for keyboard users. They cannot know where focus is.
 Some keyboard user have NO visual impairments, but have motor impairments that make using a mouse
 or other pointer impossible.
+
+#### Focus visible, best of both worlds
+
+This will be visible on tab-through but not on click. Safari ignore this rule, but this can be demoed with a button in firefox
+
+```css
+*:focus {
+	outline: none;
+}
+*:focus-visible {
+	outline: blue 2px solid;
+}
+```
 
 ### Headings
 

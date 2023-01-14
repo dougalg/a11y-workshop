@@ -7,7 +7,7 @@ export const SiteHeader = (props: React.HTMLAttributes<HTMLElement>): JSX.Elemen
 	<header {...props}>
 		<Heading>Minerva</Heading>
 		<HeadingSection>
-			<Heading level={2} id="nav-header" className="screenreader-only">
+			<Heading id="nav-header" className="screenreader-only">
 				Site Navigation
 			</Heading>
 		</HeadingSection>
