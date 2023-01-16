@@ -38,11 +38,11 @@ Show the "tab size" setting in VS Code to illustrate
 	- Switch back to `width=device-width, initial-scale=1.0` and now it works
 - Title in index.html
 - Add in the [basic landmarks](https://www.d.umn.edu/itss/training/online/structure/landmarks/):
-  - Header
-  - Main
-  - Nav
-  - Footer
-  - These could be done with aria-role BUT the ideal case for a11y is to always use the correct HTML if possible as it typically has better support
+	- Header
+	- Main
+	- Nav
+	- Footer
+	- These could be done with aria-role BUT the ideal case for a11y is to always use the correct HTML if possible as it typically has better support
 
 #### Browser Tools
 
